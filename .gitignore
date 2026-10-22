@@ -1,0 +1,14 @@
+# 运行时数据（用户/聊天记录/上传文件，绝不入库）
+data/
+uploads/
+
+# Python 缓存与打包产物
+__pycache__/
+*.pyc
+*.spec
+build/
+dist/
+
+# 系统文件
+Thumbs.db
+.DS_Store

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>内网聊天</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Ctext x='16' y='23' font-size='18' text-anchor='middle' fill='white' font-family='sans-serif'%3E%E8%81%8A%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+  <!-- 登录页 -->
+  <div id="loginPage" class="login-wrap">
+    <div class="login-box">
+      <div class="login-title">内网聊天</div>
+      <div class="login-sub">内部即时通讯</div>
+      <input id="loginName" class="input" placeholder="用户名" autocomplete="username">
+      <input id="loginPwd" type="password" class="input" placeholder="密码（首次登录即为注册）" autocomplete="current-password">
+      <div id="loginMsg" class="login-msg"></div>
+      <button id="loginBtn" class="btn primary block">进入</button>
+    </div>
+  </div>
+
+  <!-- 聊天主界面 -->
+  <div id="chatPage" class="chat-wrap hidden">
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <span id="myName" class="my-name"></span>
+        <button id="logoutBtn" class="btn ghost small">退出</button>
+      </div>
+      <div id="convList" class="conv-list"></div>
+    </aside>
+
+    <main class="main">
+      <div class="chat-head" id="chatHead">请选择一个会话</div>
+      <div id="msgList" class="msg-list"></div>
+      <div class="composer">
+        <button id="shotBtn" class="tool-btn" type="button" title="截图发送（不适用时用 Win+Shift+S 截图后 Ctrl+V 粘贴）">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M9 3 7.2 5H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.2L15 3H9zm3 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+        </button>
+        <label class="tool-btn" title="发送图片或文件">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M3 5h18v14H3V5zm2 3v8h14V8H5z" opacity="0"/><path fill="currentColor" d="M12 5a7 7 0 0 0-7 7v4a1 1 0 0 1-2 0v-4a9 9 0 0 1 18 0v4a1 1 0 0 1-2 0v-4a7 7 0 0 0-7-7zM8 11h2v3H8zm6 0h2v3h-2z"/></svg>
+          <input type="file" id="fileInput" hidden>
+        </label>
+        <textarea id="msgInput" class="msg-input" placeholder="输入消息，回车发送；Ctrl+V 可粘贴截图/文件"></textarea>
+        <button id="sendBtn" class="btn primary">发送</button>
+      </div>
+    </main>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- 图片预览灯箱 -->
+  <div id="lightbox" class="lightbox hidden">
+    <img id="lightboxImg" src="" alt="">
+    <div class="lb-hint">滚轮缩放 · 拖动查看 · 双击复位 · 点空白或 ESC 关闭</div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
